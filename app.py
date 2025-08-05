@@ -3,19 +3,16 @@ import bcrypt
 from flask import Flask, render_template, request,redirect,flash,url_for,session,get_flashed_messages
 from datetime import datetime
 import os
+import psycopg2
+from dotenv import load_dotenv
 
 app=Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 
+load_dotenv()
 def get_db():
+    return psycopg2.connect(os.getenv("DATABASE_URL"))
     
-        return mysql.connector.connect(
-        host=os.getenv("DB_HOST"),
-        user=os.getenv("DB_USER"),
-        password=os.getenv("DB_PASSWORD"),
-        database=os.getenv("DB_NAME"),
-        charset=os.getenv("DB_CHARSET")
-    )
 
 @app.route("/")
 def home():

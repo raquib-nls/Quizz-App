@@ -5,7 +5,7 @@ venv/
 
 # Ignore admin credentials
 admin.py
-
+init_db.py
 # Ignore environment file
 .env
 
@@ -14,3 +14,4 @@ __pycache__/
 *.pyc
 
 
+migrations/
