@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Category Page{% endblock %}
+
+
+{% block extra_css %}
+<!-- custom css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='catog.css') }}">
+<!-- Font Awesome CDN (for icons like home, user, github, etc.)  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock  %}
+
+
+{% block body %}
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-info" role="alert">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<div class="wrp">
+<form method="POST" class="prnt">
+  <div class="form-group frm" >
+    <label for="categories" class="choose"><i class="fas fa-lightbulb bulbg"></i>Choose categories:</label><br>
+    <span class="sp">
+    {% for category in catogaries %}
+      <a  href="{{ url_for('subcat', cat_id=category[0]) }}">
+        {{ category[1] }}
+      </a>
+    {% endfor %}
+  </span>
+  </div>
+</form>
+   
+  
+
+</form>
+
+<!-- for hiding alert msg -->
+<script>
+  setTimeout(()=>{
+  const hid =document.querySelector('.alert');
+  if (hid) {
+      hid.style.display='none';
+  }
+},3000);
+</script>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %} Import Questions {% endblock title %}guest
+
+{% block extra_css %}
+<!-- custom css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='import_question.css') }}">
+<!-- Font Awesome CDN (for icons like home, user, github, etc.)  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block body  %}
+ <h2>Import Questions from JSON</h2>
+    <form method="POST">
+        <button type="submit" class="btn">Import questions.json</button>
+    </form>
+    {% if message %}
+        <div class="msg">{{ message }}</div>
+    {% endif %}
+
+{% endblock body  %}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock title %} | Quizz App</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+  <header class="navHead">
+    <nav class="navbar navbar-expand-lg navclr">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+          <span class="house">🏠</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">Account</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ url_for('register') }}">Register</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('login') }}">Login</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('adminLogin') }}">Admin Panel</a></li>
+
+                {% if session.get('user_name') %}
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="{{ url_for('catagories') }}">Quiz Categories</a></li>
+                {% endif %}
+                {% if session.get('score') is not none %}
+                <li>
+                <a class="dropdown-item" href="{{ url_for('result') }}"> View Result</a>
+                </li>
+                {% endif %}
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto">
+            {% if session.get('user_name') %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-bold username-tex" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                👤 {{ session['user_name'] }}
+                {% if session.get('is_admin') == 1 %}
+                <span class="badge bg-warning text-dark">Admin</span>
+                {% endif %}
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="{{ url_for('logout') }}">Logout</a></li>
+              </ul>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Navbar Auto-Close on Outside Click -->
+  <script>
+    document.addEventListener("click", function (event) {
+      const navbarCollapse = document.querySelector(".navbar-collapse");
+      const isClickInside = navbarCollapse.contains(event.target);
+      const isToggler = event.target.closest(".navbar-toggler");
+
+      if (!isClickInside && !isToggler && navbarCollapse.classList.contains("show")) {
+        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+        if (bsCollapse) {
+          bsCollapse.hide();
+        }
+      }
+    });
+  </script>
+
+  {% block body %}{% endblock body %}
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block extra_css %}
+<!-- custom css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+<!-- Font Awesome CDN (for icons like home, user, github, etc.)  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock  %}
+
+    
+
+{% block body %}
+   
+<div class="wrapup">
+
+    <div class="left">
+        <h1 class="type">Welcome to Quizz App</h1> 
+        <p>Test your knowledge!</p>
+
+    </div>
+
+<div class="right">
+<div class="box">
+
+    
+<a href="{{ url_for('login') }}"  class="custom-btn"><i class="fas fa-sign-in-alt"></i>  Login</a> 
+<a href="{{ url_for('register') }}" class="custom-btn"><i class="fas fa-user-plus"></i>  Register</a>
+</div>
+</div>
+</div>
+
+{% endblock body %}

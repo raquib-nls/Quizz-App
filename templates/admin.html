@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %} Admin Dashboard Page{% endblock title %}
+
+{% block extra_css %}
+<!-- custom css  -->
+<link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+<!-- Font Awesome CDN (for icons like home, user, github, etc.)  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block body %}
+<div class="admin-dashboard-wrap">
+  <div class="box">
+    <h1>🛠️ Admin Dashboard</h1>
+    <p>Welcome Admin! Here you can manage the app.</p>
+
+    <a href="{{ url_for('add_question') }}">➕ Add Questions</a>
+
+    <hr>
+    <p>Or upload your file(json) </p>
+    <div class="upload-section">
+      <!-- Instruction Box -->
+      <div class="instruction-box">
+        <h2>📘 Instructions</h2>
+        <p>Ensure your JSON file follows this structure:</p>
+        <pre>{
+  "categories": {
+    "sports": {
+      "Cricket": {
+        "sub_id": 1,
+        "questions": [
+          {
+            "question": "Sample question?",
+            "option1": "A",
+            "option2": "B",
+            "option3": "C",
+            "option4": "D",
+            "correct_option": "b"
+          }
+        ]
+      }
+    }
+  }
+}
+        </pre>
+        <p><b>Important:</b></p>
+        <ul>
+          <li>Category & Subcategory must already exist in the database.</li>
+          <li><code>correct_option</code> should be one of: a, b, c, d.</li>
+        </ul>
+      </div>
+
+      <!-- Upload Box -->
+      <div class="upload-box">
+        <h2>📤 Upload and Import Questions</h2>
+        <form action="{{ url_for('upload_questions') }}" method="POST" enctype="multipart/form-data">
+          <label><b>Select JSON File:</b></label><br>
+          <input type="file" name="file" required><br><br>
+          <button type="submit" class="uploadbtn">Upload and Import</button>
+        </form>
+        <!-- for error msg -->
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+
+        <!-- for progress msg -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

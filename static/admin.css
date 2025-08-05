@@ -1,0 +1,242 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #edddba 0%, #ACB6E5 100%);
+    color: #2d2d2d;
+    box-sizing: border-box;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.admin-dashboard-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3em 2em;
+    background: inherit;
+}
+
+
+.admin-dashboard-wrap h1 {
+    margin-top: 0;
+    text-align: center;
+    font-weight: 700;
+    color: #2d2d2d;
+    font-size: 2.5rem;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+
+.admin-dashboard-wrap p {
+    text-align: center;
+    margin: 1em auto 2.5em auto;
+    font-size: 1.2rem;
+    max-width: 500px;
+    color: #444;
+    animation: fadeInUp 1.8s ease forwards;
+}
+
+
+.admin-dashboard-wrap a {
+    display: block;
+    max-width: fit-content;
+    margin: 0 auto;
+    padding: 0.8em 1.5em;
+    background-color: rgba(45, 45, 45, 0.85);
+    color: white;
+    text-decoration: none;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 2s ease forwards;
+}
+
+.admin-dashboard-wrap a:hover {
+    background-color: #444;
+    transform: scale(1.05);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+
+.upload-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+
+.instruction-box, .upload-box {
+    flex: 1;
+    min-width: 320px;
+    max-width: 500px;
+    padding: 25px 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease forwards;
+}
+
+.instruction-box:hover,
+.upload-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+
+.instruction-box h2,
+.upload-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2d2d2d;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+
+.instruction-box ul {
+    padding-left: 1.5em;
+    margin-top: 0.5em;
+    color: #333;
+}
+
+.instruction-box li {
+    margin-bottom: 0.4em;
+    font-size: 0.95rem;
+}
+
+pre {
+    background: #fafafa;
+    border-left: 5px solid #bbb;
+    padding: 15px;
+    font-size: 0.9rem;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 8px;
+    color: #2d2d2d;
+    overflow-x: auto;
+}
+
+
+.upload-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.upload-box label {
+    font-weight: 600;
+    margin-bottom: 0.2em;
+    color: #333;
+}
+
+.upload-box input[type="file"] {
+    padding: 10px;
+    border: 2px dashed #999;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.upload-box input[type="file"]:hover {
+    border-color: #444;
+}
+
+
+.upload-box button {
+    align-self: flex-start;
+    font-size: 1rem;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #2d2d2d, #555);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.upload-box button:hover {
+    background: linear-gradient(135deg, #444, #222);
+    transform: scale(1.05);
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+    }
+
+    .upload-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        width: 100%;
+        transform: scale(0.75); 
+        transform-origin: top center;
+    }
+  
+  
+    .instruction-box,
+    .upload-box {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px;
+        box-sizing: border-box;
+    }
+
+    .admin-dashboard-wrap {
+        padding: 2em 4em;
+        width: 100%;
+    }
+
+     .admin-dashboard-wrap h1 {
+        font-size: 1.8rem;     
+        padding: 0 10px;       
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    .admin-dashboard-wrap p {
+        font-size: 1rem;
+        padding: 0 10px;
+        word-wrap: break-word;
+        text-align: center;
+    }
+}
+
+

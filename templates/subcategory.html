@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+   Subcategory Page
+{% endblock title %}
+
+{% block extra_css %}
+<!-- custom css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='sub.css') }}">
+
+{% endblock  %}
+
+
+
+{% block body %}
+
+<div class="prnt">
+<div class="box">
+   <p class="typewriter">
+      <span class="wrap" >
+      <span class="text">Choose Any One</span><span class="cursor">!</span>
+   </span>
+    </p>
+
+<div class="sub">
+{% for i in subcat %}
+
+   <a href="{{url_for('quizz',id=i[0],id2=i[2])}}">
+    {{i[1] | capitalize}}
+   </a>
+{% endfor %}
+
+</div>
+</div>
+</div>
+
+
+{% endblock body %}
+
+

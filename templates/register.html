@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block title %} Register Page {% endblock title %}
+
+
+{% block extra_css %}
+<!-- custom css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+<!-- Font Awesome CDN (for icons like home, user, github, etc.)  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+{% endblock  %}
+
+{% block body  %}
+<div class="wrap fadeInUp" id="mainWrap">
+
+   
+
+<form method="POST" class="foram">
+     
+    <div class="bulb-container">
+        <i class="fa-solid fa-lightbulb"></i>
+      </div>
+
+    <div class="inputwrap">
+    <label for="username"><i class="fa-solid fa-user"></i></label>
+    <div class="divider"></div>
+    <input type="text" id="username" name="username" required placeholder="Username"><br><br>
+</div>
+
+<div class="inputwrap">
+    <label for="email"><i class="fas fa-envelope"></i></label>
+    <div class="divider"></div>
+    <input type="email" id="email" name="email" required placeholder="Email"><br><br>
+</div>
+<div class="inputwrap">
+    <label for="password"><i class="fas fa-lock"></i></label>
+    <div class="divider"></div>
+    <input type="password" id="password" name="password" required placeholder="Password"><br><br>
+</div>
+
+    <button type="submit">Register</button>
+</form>
+<a class="dont" href="{{ url_for('login') }}">Already have an account? Login</a>
+
+{% if msg %}
+    <div class="alert alert-dark" role="alert">
+    {{msg}}
+  </div>
+{% endif %}
+<!-- hidden input for marking flag status for redirecting and triggering animation effect -->
+<input type="hidden" id="redirect" value="{{flag|tojson}}">
+<script>
+    
+const rcatt = document.getElementById('redirect').value;
+
+if (rcatt === "true") {
+    sessionStorage.setItem('noAnimation', 'true');
+}
+// to stop unnecassary animation effect
+window.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem('noAnimation') === 'true') {
+        document.getElementById('mainWrap')?.classList.add('no-animation');
+        sessionStorage.removeItem('noAnimation'); 
+    }
+});
+
+// for hiding alert msg
+setTimeout(() => {
+    const hid = document.querySelector('.alert');
+    if (hid) {
+        hid.style.display = 'none';
+    }
+}, 2000);
+
+// for redirect to next url 
+if (rcatt === "true") {
+    setTimeout(() => {
+        window.location.href = "{{ url_for('login') }}";
+    }, 1000);
+}
+</script>
+</div>
+    
+{% endblock body %}
+
+
+

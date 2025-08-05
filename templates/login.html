@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %} Login Page {% endblock title %}
+
+
+{% block extra_css %}
+<!-- custom css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+<!-- Font Awesome CDN (for icons like home, user, github, etc.)  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+{% endblock  %}
+
+{% block body %}
+    
+<div class="wrapl fadeInUp" id="mainWrap">
+
+
+<div class="box" id="login-box">
+<form method="POST" class="foraml" >
+    
+    <img src="https://img.icons8.com/fluency/96/brain.png" alt="Quiz Brain Icon" class="quiz-icon">
+
+    <h2 class="welcome">Welcome Quizzer!</h2>
+
+    <div class="inputWrap">
+    <i class="fas fa-envelope"></i>
+    <div class="divider"></div>
+    <input type="email" class="emai" name="email" value="{{email}}" placeholder="Email" required>
+    </div>
+
+    <div class="inputWrap">
+    <i class="fas fa-lock"></i>
+    <div class="divider"></div>
+    <input type="password" name="password" value="{{password}}" placeholder="Password" required>
+    </div>
+    
+
+    <div id="adminPass" class ="{% if ask_admin %} show {% else %} hide {% endif %} ;" >
+        <label for="admin_pss">🔑 Enter Admin Secret Key:</label>
+        <input type="password" name="admin_pss">
+    </div><br>
+
+    <button type="submit">Login</button>
+
+</form>
+
+<style>
+    .show{
+        display: block;
+    }
+
+    .hide{
+        display: none;
+    }
+    
+</style>
+
+<a class="linkk" href="{{ url_for('register') }}">Don't have an account? Register</a>
+
+{% if msg %}
+    <div class="alert alert-dark" role="alert">
+        {{ msg|safe }}
+  </div>
+{% endif %}
+</div> 
+<!-- Used hidden input as indicators for redirecting and triggering animation effect -->
+ <input type="hidden" id="redirect" value="{{rcat|tojson}}">
+ <input type="hidden" id="animation" value="{{flag_anim|tojson}}">
+<script>
+
+    const rcatt =document.getElementById('animation').value;
+    const redirect =document.getElementById('redirect').value;
+
+    if(rcatt==='true'){
+    sessionStorage.setItem('noAnimation','true');
+    }
+    // checking for triggering animation effect
+    window.addEventListener('DOMContentLoaded', () => {
+        if(sessionStorage.getItem('noAnimation')==='true'){
+            document.getElementById('mainWrap')?.classList.add('no-animation')
+            sessionStorage.removeItem('noAnimation');
+        }
+    });
+    // managing timeout
+    setTimeout(()=>{
+        const hid =document.querySelector('.alert');
+        if (hid) {
+            hid.style.display='none';
+        }
+    },1500);
+
+    if (redirect === "true") {
+        setTimeout(() => {
+            window.location.href = "{{ url_for('catagories') }}";
+        }, 1000);
+    }
+   
+</script>
+    
+</div>
+{% endblock body %}
+
+

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %} Admin Login Page {% endblock title %}
+
+{% block extra_css %}
+<!-- custome css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='adminLogin.css') }}">
+<!-- Font Awesome CDN (for icons like home, user, github, etc.)  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block body %}
+<div class="wrapl fadeInUp" id="mainWrap">
+
+<div class="prnt">
+  <div class="box">
+    <h2>Admin Login</h2>
+
+    {% if msg %}
+      <p class="alert">{{ msg }}</p>
+    {% endif %}
+
+    <form method="POST" class="inbtn">
+      <div class="input-wrapper">
+        <i class="fa fa-envelope"></i>
+        <input type="email" name="email" placeholder="Admin Email" required>
+      </div>
+
+      <div class="input-wrapper">
+        <i class="fa fa-lock"></i>
+        <input type="password" name="password" placeholder="Password" required>
+      </div>
+
+      <button type="submit" class="btn">Login as Admin</button>
+    </form>
+  </div>
+</div>
+
+
+<script>
+
+// --here dealing with alert msg,animation effect and set timeout --
+window.addEventListener('DOMContentLoaded', () => {
+  const mainWrap = document.getElementById('mainWrap');
+  const alertMsg = document.querySelector('.alert');
+
+  if (!mainWrap) return;
+
+  if (alertMsg) {
+    mainWrap.classList.add('no-animation');
+  } else {
+    mainWrap.classList.remove('no-animation');
+  }
+
+
+  setTimeout(() => {
+    if (alertMsg) alertMsg.style.display = 'none';
+  }, 2000);
+});
+
+
+</script>
+</div>
+{% endblock %}
+
+

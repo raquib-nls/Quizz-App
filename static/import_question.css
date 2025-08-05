@@ -1,0 +1,7 @@
+body { font-family: Arial; padding: 20px; }
+.btn {
+    background-color: #4CAF50; color: white;
+    padding: 12px 20px; border: none;
+    cursor: pointer; border-radius: 5px;
+}
+.msg { margin-top: 20px; color: darkblue; }

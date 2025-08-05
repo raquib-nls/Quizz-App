@@ -1,0 +1,16 @@
+# Ignore virtual environment
+env/
+venv/
+
+
+# Ignore admin credentials
+admin.py
+
+# Ignore environment file
+.env
+
+# Ignore __pycache__ and compiled files
+__pycache__/
+*.pyc
+
+

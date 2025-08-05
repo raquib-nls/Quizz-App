@@ -1,0 +1,280 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: wheat;
+}
+
+.wrapup {
+
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    /* padding-top: 10px; */
+    height: 100dvh;
+    background-color: rgb(240, 230, 230);
+
+}
+.left{
+    position: absolute;
+    background-color: #006666;
+    color: white;
+    top: inherit;
+    left: 0;
+    width: 60%;
+    height: inherit;
+    clip-path: polygon(0 0, 85% 0, 94% 100%, 0% 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.left::before{
+    content: '';
+    position: absolute;
+    top: 33%; 
+    left: 50%; 
+    transform: translate(-50%, -30%);
+    width: 250px; 
+    height: 250px;
+    background: url('/static/images/brain.webp') no-repeat center center;
+    background-size: contain;
+    filter: blur(4px) drop-shadow(0 0 20px #ffe600);
+    opacity: 0.9;
+    z-index: 0;
+    
+    
+}
+    
+.left p, h1{
+    position: relative;
+    z-index: 1;
+}
+
+.left h1{
+    margin-inline: auto;
+    overflow: hidden;
+    display: inline-block;
+    margin-inline: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0ch;
+    text-align: center;
+    /* border-right: 3px solid black; */
+    animation: typee 2s steps(20) forwards;
+}
+
+
+
+.type{
+    display: inline-block !important;
+}
+.left h1 {
+    position: relative;
+}
+.left p{
+    font-size: 1.5rem;
+    overflow: hidden;
+    white-space:nowrap;
+    width: 0ch;
+    animation: typee 2s steps(24) forwards;
+    animation-delay: 1.7s;
+
+}
+
+
+.type::after {
+    content: "_"; /* Or "_" or anything you like */
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    
+    animation: blink 0.8s steps(1, start) infinite;
+    opacity: 1;
+}
+@keyframes typee{
+    from{width: 0;}
+    to{width: 18.5ch;}
+}
+
+@keyframes blink{
+    0%,100%{
+        opacity: 1;
+    }
+   50%{
+    opacity: 0;
+   }
+}
+
+.right{
+    position: absolute;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: white;
+    display: flex;
+    top: inherit;
+    right:0;
+    width: 60%;
+    height: inherit;
+    clip-path:polygon(16% 0, 100% 0, 100% 100%, 26% 100%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.box{
+    display: flex;
+    width: 250px;
+    height: 250px !important;
+    flex-direction: column;
+    border: 2px solid black;
+    backdrop-filter: blur(10px);
+    background-color:rgb(255, 255, 255,0.3) ;
+    padding: 40px,30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    height: max-content;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 4px 20px rgb(0, 0, 0,0.3);
+    z-index: 10;
+    gap: 20px;
+    
+}
+
+
+.custom-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px;
+    background-color: #4CAF50; 
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+    border-radius: 10px;
+    font-size: 30px;
+
+}
+  
+.custom-btn:hover {
+background-color: #45a049; 
+transform: scale(1.05);
+}
+
+.box a{
+transition: all 0.3sec ease;
+}
+@keyframes pulse{
+    0% {transform: scale(1);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1);}
+}
+
+.box a:hover{
+    transform: translate(-5px);
+    box-shadow: 0px 8px 16px rgb(0, 0, 0,0.3);
+    animation: pulse 0.9s infinite;
+}
+
+
+@media (max-width:768px){
+    .left {
+        position: relative !important;
+        height: 40vh !important;
+        
+    }
+    .right{
+        position: relative !important;
+        height: 60vh !important;
+       
+    }
+
+    .left h1{
+        top: 2rem;
+        font-weight: 600;
+        width: 20ch;
+        animation: typee 2s steps(24) forwards;
+ 
+    }
+
+        .left p{
+            top: 2.5rem;
+            font-size: 1.7em;
+            font-weight: 500;
+            overflow: hidden;
+            white-space:nowrap;
+            width: 0ch;
+            animation: typee 2s steps(24) forwards;
+            animation-delay: 1.7s;
+        }
+
+
+    @keyframes typee{
+        from{width: 0;}
+        to{width: 20.5ch;}
+    }
+
+    .wrapup {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .left, .right {
+        position: relative;
+        width: 100%;
+        clip-path: none;
+        height: auto;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    
+
+    .box {
+        position: relative;
+        width: 70%;
+        margin-top: 1rem;
+        padding: 1rem;
+        height: auto;
+        bottom: 2.5rem !important;
+        animation: fadeInUp 0.7s ease-in forwards;
+    }
+
+    @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        }
+    }
+
+
+
+    .custom-btn {
+        font-size: 1.5rem;
+        margin: 0.5rem;
+
+
+    }
+
+
+    .box a:hover{
+        animation: none;
+        transform: none;
+    }
+
+   
+
+   
+}

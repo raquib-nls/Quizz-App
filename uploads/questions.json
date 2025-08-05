@@ -1,0 +1,999 @@
+{
+    "categories": {
+        "sports": {
+            "Cricket": {
+                "sub_id": 1,
+                "questions": [
+                    {
+                        "question": "Which country won the first Cricket World Cup in 1975?",
+                        "option1": "India",
+                        "option2": "Australia",
+                        "option3": "West Indies",
+                        "option4": "England",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "What does LBW stand for in cricket?",
+                        "option1": "Long Ball Win",
+                        "option2": "Leg Before Wicket",
+                        "option3": "Left Bat Wide",
+                        "option4": "Leg Break Winner",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which player is known as 'The Wall' of Indian cricket?",
+                        "option1": "Virat Kohli",
+                        "option2": "MS Dhoni",
+                        "option3": "Sachin Tendulkar",
+                        "option4": "Rahul Dravid",
+                        "correct_option": "d"
+                    },
+                    {
+                        "question": "Which country does Kane Williamson play for?",
+                        "option1": "Australia",
+                        "option2": "South Africa",
+                        "option3": "New Zealand",
+                        "option4": "England",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "How many players are there in a cricket team on the field?",
+                        "option1": "9",
+                        "option2": "10",
+                        "option3": "11",
+                        "option4": "12",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "What is the term for 3 wickets in 3 consecutive balls?",
+                        "option1": "Hat-trick",
+                        "option2": "Triple Toss",
+                        "option3": "Streak",
+                        "option4": "Clean Sweep",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Who is called the 'God of Cricket'?",
+                        "option1": "Ricky Ponting",
+                        "option2": "MS Dhoni",
+                        "option3": "Sachin Tendulkar",
+                        "option4": "Shane Warne",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "In which city is the Lord's cricket ground located?",
+                        "option1": "Mumbai",
+                        "option2": "London",
+                        "option3": "Sydney",
+                        "option4": "Cape Town",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "What is the maximum number of overs allowed in an ODI match for one team?",
+                        "option1": "40",
+                        "option2": "50",
+                        "option3": "60",
+                        "option4": "20",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which bowler has the most wickets in Test cricket?",
+                        "option1": "Muttiah Muralitharan",
+                        "option2": "Anil Kumble",
+                        "option3": "James Anderson",
+                        "option4": "Shane Warne",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "What is a 'duck' in cricket?",
+                        "option1": "Getting out without scoring",
+                        "option2": "Hitting 6 runs",
+                        "option3": "Bowling a wide ball",
+                        "option4": "A type of shot",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which team is called the Men in Blue?",
+                        "option1": "Australia",
+                        "option2": "India",
+                        "option3": "Pakistan",
+                        "option4": "Sri Lanka",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which cricketer is famous for his helicopter shot?",
+                        "option1": "MS Dhoni",
+                        "option2": "Yuvraj Singh",
+                        "option3": "Virender Sehwag",
+                        "option4": "Hardik Pandya",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which Indian bowler took 10 wickets in a single Test innings?",
+                        "option1": "Anil Kumble",
+                        "option2": "Harbhajan Singh",
+                        "option3": "Zaheer Khan",
+                        "option4": "Ashwin",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which format is shorter, ODI or T20?",
+                        "option1": "ODI",
+                        "option2": "T20",
+                        "option3": "Both same",
+                        "option4": "Depends on match",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which trophy is given for the India vs Australia Test series?",
+                        "option1": "Border-Gavaskar Trophy",
+                        "option2": "Ashes",
+                        "option3": "Champions Trophy",
+                        "option4": "Ind-Aus Cup",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Who was India's first T20 captain?",
+                        "option1": "Rahul Dravid",
+                        "option2": "MS Dhoni",
+                        "option3": "Virender Sehwag",
+                        "option4": "Sourav Ganguly",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which batsman hit 6 sixes in an over in T20I?",
+                        "option1": "Yuvraj Singh",
+                        "option2": "Chris Gayle",
+                        "option3": "Andre Russell",
+                        "option4": "Rohit Sharma",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Where is the Wankhede Stadium located?",
+                        "option1": "Delhi",
+                        "option2": "Mumbai",
+                        "option3": "Kolkata",
+                        "option4": "Chennai",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Who is India's top run-scorer in World Cups?",
+                        "option1": "Virat Kohli",
+                        "option2": "Sachin Tendulkar",
+                        "option3": "Rohit Sharma",
+                        "option4": "Ganguly",
+                        "correct_option": "b"
+                    }
+                ]
+            },
+            "Football": {
+                "sub_id": 2,
+                "questions": [
+                    {
+                        "question": "Which player has won the most Ballon d'Or awards?",
+                        "option1": "Cristiano Ronaldo",
+                        "option2": "Zinedine Zidane",
+                        "option3": "Lionel Messi",
+                        "option4": "Ronaldinho",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which country won the 2022 FIFA World Cup?",
+                        "option1": "France",
+                        "option2": "Argentina",
+                        "option3": "Brazil",
+                        "option4": "Germany",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which club has won the most UEFA Champions League titles?",
+                        "option1": "Barcelona",
+                        "option2": "AC Milan",
+                        "option3": "Manchester United",
+                        "option4": "Real Madrid",
+                        "correct_option": "d"
+                    },
+                    {
+                        "question": "Which player is nicknamed 'CR7'?",
+                        "option1": "Cristiano Ronaldo",
+                        "option2": "Carlos Roa",
+                        "option3": "Cristian Romero",
+                        "option4": "Cafu",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which country has won the most World Cups?",
+                        "option1": "Germany",
+                        "option2": "Italy",
+                        "option3": "Brazil",
+                        "option4": "Argentina",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which footballer is known as 'The Egyptian King'?",
+                        "option1": "Mohamed Salah",
+                        "option2": "Hakim Ziyech",
+                        "option3": "Sadio Mané",
+                        "option4": "Riyad Mahrez",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which English club is nicknamed 'The Red Devils'?",
+                        "option1": "Liverpool",
+                        "option2": "Manchester United",
+                        "option3": "Arsenal",
+                        "option4": "Chelsea",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which footballer was famous for the 'Hand of God' goal?",
+                        "option1": "Pelé",
+                        "option2": "Lionel Messi",
+                        "option3": "Diego Maradona",
+                        "option4": "Ronaldinho",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which player scored the fastest goal in World Cup history?",
+                        "option1": "Hakan Şükür",
+                        "option2": "Kylian Mbappé",
+                        "option3": "Cristiano Ronaldo",
+                        "option4": "Zlatan Ibrahimović",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which football club does Erling Haaland play for (as of 2025)?",
+                        "option1": "Real Madrid",
+                        "option2": "Borussia Dortmund",
+                        "option3": "Manchester City",
+                        "option4": "Barcelona",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "In which year was the first FIFA World Cup held?",
+                        "option1": "1930",
+                        "option2": "1940",
+                        "option3": "1954",
+                        "option4": "1925",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "What color card means a player is sent off?",
+                        "option1": "Green",
+                        "option2": "Yellow",
+                        "option3": "Red",
+                        "option4": "Blue",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "What is the maximum number of players on the field for one team?",
+                        "option1": "11",
+                        "option2": "10",
+                        "option3": "12",
+                        "option4": "9",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which country hosted the 2018 FIFA World Cup?",
+                        "option1": "Brazil",
+                        "option2": "Russia",
+                        "option3": "France",
+                        "option4": "Qatar",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which football manager is known for the phrase 'The Special One'?",
+                        "option1": "Pep Guardiola",
+                        "option2": "Jürgen Klopp",
+                        "option3": "Jose Mourinho",
+                        "option4": "Zinedine Zidane",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which player scored a bicycle kick goal against Juventus in the UCL?",
+                        "option1": "Kylian Mbappé",
+                        "option2": "Cristiano Ronaldo",
+                        "option3": "Benzema",
+                        "option4": "Neymar",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which country is known as 'Les Bleus' in football?",
+                        "option1": "Italy",
+                        "option2": "Argentina",
+                        "option3": "France",
+                        "option4": "Spain",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "What's the name of the award given to the top scorer in a World Cup?",
+                        "option1": "Golden Ball",
+                        "option2": "Golden Boot",
+                        "option3": "Golden Glove",
+                        "option4": "Top Striker",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which stadium is the home of FC Barcelona?",
+                        "option1": "Old Trafford",
+                        "option2": "Santiago Bernabéu",
+                        "option3": "Camp Nou",
+                        "option4": "Anfield",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Who is often called the GOAT of football?",
+                        "option1": "Pogba",
+                        "option2": "Mbappé",
+                        "option3": "Messi",
+                        "option4": "Lewandowski",
+                        "correct_option": "c"
+                    }
+                ]
+            },
+            "hockey": {
+                "sub_id": 3,
+                "questions": [
+                    {
+                        "question": "What is the maximum number of players in a hockey team on field?",
+                        "option1": "11",
+                        "option2": "10",
+                        "option3": "9",
+                        "option4": "7",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which Indian hockey legend is known as the 'Wizard of Hockey'?",
+                        "option1": "Dhanraj Pillay",
+                        "option2": "Balbir Singh Sr.",
+                        "option3": "Dhyan Chand",
+                        "option4": "Sandeep Singh",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which country has won the most Olympic gold medals in hockey?",
+                        "option1": "India",
+                        "option2": "Germany",
+                        "option3": "Australia",
+                        "option4": "Netherlands",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which Indian hockey player is nicknamed 'The Wizard'?",
+                        "option1": "Dhanraj Pillay",
+                        "option2": "Dhyan Chand",
+                        "option3": "Manpreet Singh",
+                        "option4": "Sardar Singh",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "What is the duration of a standard field hockey match?",
+                        "option1": "60 minutes",
+                        "option2": "70 minutes",
+                        "option3": "90 minutes",
+                        "option4": "80 minutes",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "What is the shape of a hockey stick's head?",
+                        "option1": "Oval",
+                        "option2": "Flat on one side",
+                        "option3": "Round",
+                        "option4": "Square",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which surface is modern field hockey mostly played on?",
+                        "option1": "Clay",
+                        "option2": "AstroTurf",
+                        "option3": "Concrete",
+                        "option4": "Sand",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "How many quarters are there in a hockey match?",
+                        "option1": "2",
+                        "option2": "3",
+                        "option3": "4",
+                        "option4": "5",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Who captained India to a bronze medal in Tokyo 2020?",
+                        "option1": "Manpreet Singh",
+                        "option2": "PR Sreejesh",
+                        "option3": "Harmanpreet Singh",
+                        "option4": "Rupinder Pal Singh",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which equipment is mandatory in hockey?",
+                        "option1": "Shin guards",
+                        "option2": "Elbow pads",
+                        "option3": "Helmet",
+                        "option4": "Gloves",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "When was the first Hockey World Cup held?",
+                        "option1": "1971",
+                        "option2": "1975",
+                        "option3": "1969",
+                        "option4": "1980",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which Indian city hosted the 2023 Men's Hockey World Cup?",
+                        "option1": "Mumbai",
+                        "option2": "Chennai",
+                        "option3": "Rourkela",
+                        "option4": "New Delhi",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which part of the stick can be used to hit the ball?",
+                        "option1": "Any side",
+                        "option2": "Only the flat side",
+                        "option3": "Only the rounded side",
+                        "option4": "Both sides",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Who is the goalkeeper in Indian hockey (as of 2025)?",
+                        "option1": "PR Sreejesh",
+                        "option2": "Manpreet Singh",
+                        "option3": "Lalit Upadhyay",
+                        "option4": "Harmanpreet Singh",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which trophy is associated with Indian domestic hockey?",
+                        "option1": "Ranji Trophy",
+                        "option2": "Beighton Cup",
+                        "option3": "Santosh Trophy",
+                        "option4": "Durand Cup",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which material are modern hockey balls made of?",
+                        "option1": "Leather",
+                        "option2": "Plastic",
+                        "option3": "Wood",
+                        "option4": "Rubber",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which state in India is known for producing top hockey players?",
+                        "option1": "Punjab",
+                        "option2": "Kerala",
+                        "option3": "Rajasthan",
+                        "option4": "Gujarat",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which position scores the most goals?",
+                        "option1": "Midfielder",
+                        "option2": "Goalkeeper",
+                        "option3": "Forward",
+                        "option4": "Defender",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which nation won the first Women's Hockey World Cup?",
+                        "option1": "Netherlands",
+                        "option2": "India",
+                        "option3": "Australia",
+                        "option4": "Germany",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which Indian women's player is known as the Drag-flick Queen?",
+                        "option1": "Rani Rampal",
+                        "option2": "Deep Grace Ekka",
+                        "option3": "Gurjit Kaur",
+                        "option4": "Neha Goyal",
+                        "correct_option": "c"
+                    }
+                ]
+            }
+        },
+        "programm": {
+            "Python": {
+                "sub_id": 4,
+                "questions": [
+                    {
+                        "question": "What is the correct file extension for Python files?",
+                        "option1": ".pyth",
+                        "option2": ".pt",
+                        "option3": ".py",
+                        "option4": ".python",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which keyword is used to start a function in Python?",
+                        "option1": "function",
+                        "option2": "def",
+                        "option3": "fun",
+                        "option4": "define",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "What does the len() function do?",
+                        "option1": "Deletes a variable",
+                        "option2": "Returns length of an object",
+                        "option3": "Creates a loop",
+                        "option4": "Finds errors",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "How do you insert COMMENTS in Python code?",
+                        "option1": "/* This is a comment */",
+                        "option2": "# This is a comment",
+                        "option3": "// This is a comment",
+                        "option4": "<!-- This is a comment -->",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which data type is used to store True or False?",
+                        "option1": "int",
+                        "option2": "string",
+                        "option3": "bool",
+                        "option4": "float",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which method adds an item to a list?",
+                        "option1": "insert()",
+                        "option2": "append()",
+                        "option3": "add()",
+                        "option4": "push()",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "What is the output of: print(type('Hello'))?",
+                        "option1": "<class 'str'>",
+                        "option2": "<class 'int'>",
+                        "option3": "<string>",
+                        "option4": "str",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "What is used to handle exceptions in Python?",
+                        "option1": "try/except",
+                        "option2": "catch/throw",
+                        "option3": "error/fix",
+                        "option4": "test/check",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which symbol is used for exponentiation?",
+                        "option1": "^",
+                        "option2": "**",
+                        "option3": "^^",
+                        "option4": "//",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "What does the input() function do?",
+                        "option1": "Prints text",
+                        "option2": "Takes user input",
+                        "option3": "Starts a loop",
+                        "option4": "Checks condition",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which of the following is a mutable type?",
+                        "option1": "tuple",
+                        "option2": "int",
+                        "option3": "list",
+                        "option4": "str",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which keyword is used for loops?",
+                        "option1": "loop",
+                        "option2": "while",
+                        "option3": "iterate",
+                        "option4": "start",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which operator is used to check equality?",
+                        "option1": "=",
+                        "option2": "==",
+                        "option3": "===",
+                        "option4": "!=",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which function returns the largest item?",
+                        "option1": "big()",
+                        "option2": "max()",
+                        "option3": "largest()",
+                        "option4": "top()",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "What is the output of 5 // 2?",
+                        "option1": "2.5",
+                        "option2": "2",
+                        "option3": "3",
+                        "option4": "2.0",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "How do you start a for loop?",
+                        "option1": "for i to range(10)",
+                        "option2": "for i in range(10):",
+                        "option3": "loop i=10",
+                        "option4": "repeat 10 times",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "What does 'None' represent in Python?",
+                        "option1": "Zero",
+                        "option2": "Empty list",
+                        "option3": "No value",
+                        "option4": "False",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which of the following is a Python tuple?",
+                        "option1": "[1, 2, 3]",
+                        "option2": "{1, 2, 3}",
+                        "option3": "(1, 2, 3)",
+                        "option4": "<1, 2, 3>",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "What keyword is used to exit a loop?",
+                        "option1": "end",
+                        "option2": "stop",
+                        "option3": "exit",
+                        "option4": "break",
+                        "correct_option": "d"
+                    },
+                    {
+                        "question": "Which Python keyword defines a class?",
+                        "option1": "class",
+                        "option2": "define",
+                        "option3": "object",
+                        "option4": "struct",
+                        "correct_option": "a"
+                    }
+                ]
+            },
+            "Cpp(C++)": {
+                "sub_id": 5,
+                "questions": [
+                    {
+                        "question": "Which header file is required to use `cout` and `cin` in C++?",
+                        "option1": "stdio.h",
+                        "option2": "iostream",
+                        "option3": "conio.h",
+                        "option4": "stdlib.h",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "What is the correct syntax to start the main function in C++?",
+                        "option1": "void main()",
+                        "option2": "start()",
+                        "option3": "main()",
+                        "option4": "int main()",
+                        "correct_option": "d"
+                    },
+                    {
+                        "question": "Which of these symbols is used for comments in C++?",
+                        "option1": "# comment",
+                        "option2": "// comment",
+                        "option3": "-- comment",
+                        "option4": "\\ comment",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which operator is used to allocate memory dynamically in C++?",
+                        "option1": "malloc",
+                        "option2": "alloc",
+                        "option3": "new",
+                        "option4": "create",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "What is the extension of a C++ source code file?",
+                        "option1": ".cpp",
+                        "option2": ".cp",
+                        "option3": ".cxx",
+                        "option4": ".ccp",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "What is the use of `endl` in C++?",
+                        "option1": "Starts a loop",
+                        "option2": "Ends a program",
+                        "option3": "Prints a new line",
+                        "option4": "Clears screen",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which keyword is used to define a constant variable?",
+                        "option1": "static",
+                        "option2": "final",
+                        "option3": "const",
+                        "option4": "constant",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which of the following is used to define a class in C++?",
+                        "option1": "object",
+                        "option2": "class",
+                        "option3": "struct",
+                        "option4": "define",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "What is the correct way to declare an integer pointer?",
+                        "option1": "int ptr;",
+                        "option2": "int *ptr;",
+                        "option3": "pointer int ptr;",
+                        "option4": "*int ptr;",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which operator is overloaded for output in C++?",
+                        "option1": ">>",
+                        "option2": "<<",
+                        "option3": "**",
+                        "option4": "%%",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which C++ loop is guaranteed to run at least once?",
+                        "option1": "for",
+                        "option2": "while",
+                        "option3": "do-while",
+                        "option4": "loop",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "How do you declare a string in modern C++?",
+                        "option1": "char str[10]",
+                        "option2": "string str;",
+                        "option3": "text str;",
+                        "option4": "str string;",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "What is a constructor in C++?",
+                        "option1": "Function to destroy objects",
+                        "option2": "Function to create classes",
+                        "option3": "Function to initialize objects",
+                        "option4": "Loop function",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which keyword is used to prevent inheritance?",
+                        "option1": "final",
+                        "option2": "stop",
+                        "option3": "void",
+                        "option4": "static",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "What does `this` keyword refer to in a class?",
+                        "option1": "Base class",
+                        "option2": "Static object",
+                        "option3": "Current object",
+                        "option4": "None of the above",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which symbol is used to access members using pointer?",
+                        "option1": ".",
+                        "option2": "->",
+                        "option3": "::",
+                        "option4": "#",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which concept allows the same function name to perform different tasks?",
+                        "option1": "Inheritance",
+                        "option2": "Polymorphism",
+                        "option3": "Encapsulation",
+                        "option4": "Abstraction",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which access specifier allows members to be accessible only within the same class?",
+                        "option1": "public",
+                        "option2": "protected",
+                        "option3": "private",
+                        "option4": "internal",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which STL component is used to store key-value pairs?",
+                        "option1": "vector",
+                        "option2": "array",
+                        "option3": "map",
+                        "option4": "list",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which function is called automatically when an object is destroyed?",
+                        "option1": "Constructor",
+                        "option2": "Main",
+                        "option3": "Destructor",
+                        "option4": "delete()",
+                        "correct_option": "c"
+                    }
+                ]
+            },
+            "Java": {
+                "sub_id": 6,
+                "questions": [
+                    {
+                        "question": "Which symbol is used to end a statement in Java?",
+                        "option1": ".",
+                        "option2": ":",
+                        "option3": ";",
+                        "option4": "#",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which keyword is used to define a class in Java?",
+                        "option1": "define",
+                        "option2": "object",
+                        "option3": "class",
+                        "option4": "function",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which method is the entry point of a Java program?",
+                        "option1": "start()",
+                        "option2": "main()",
+                        "option3": "run()",
+                        "option4": "execute()",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which of the following is NOT a primitive data type in Java?",
+                        "option1": "int",
+                        "option2": "float",
+                        "option3": "boolean",
+                        "option4": "string",
+                        "correct_option": "d"
+                    },
+                    {
+                        "question": "How do you print something in Java?",
+                        "option1": "echo",
+                        "option2": "System.out.println()",
+                        "option3": "print()",
+                        "option4": "printf()",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which keyword is used to inherit a class in Java?",
+                        "option1": "inherits",
+                        "option2": "this",
+                        "option3": "extends",
+                        "option4": "super",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "What does JVM stand for?",
+                        "option1": "Java Virtual Machine",
+                        "option2": "Java Visual Model",
+                        "option3": "Joint Variable Mode",
+                        "option4": "Just Verified Method",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which keyword is used to create an object in Java?",
+                        "option1": "create",
+                        "option2": "object",
+                        "option3": "new",
+                        "option4": "init",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which access modifier makes a member accessible from any class?",
+                        "option1": "protected",
+                        "option2": "private",
+                        "option3": "default",
+                        "option4": "public",
+                        "correct_option": "d"
+                    },
+                    {
+                        "question": "Which concept allows multiple methods with the same name in a class?",
+                        "option1": "Inheritance",
+                        "option2": "Encapsulation",
+                        "option3": "Method Overloading",
+                        "option4": "Abstraction",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which keyword is used to define a constant variable?",
+                        "option1": "final",
+                        "option2": "const",
+                        "option3": "fixed",
+                        "option4": "define",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "What is the superclass of all classes in Java?",
+                        "option1": "Parent",
+                        "option2": "SuperClass",
+                        "option3": "Base",
+                        "option4": "Object",
+                        "correct_option": "d"
+                    },
+                    {
+                        "question": "Which of the following is used to handle exceptions in Java?",
+                        "option1": "try-catch",
+                        "option2": "if-else",
+                        "option3": "for loop",
+                        "option4": "break statement",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "What is the size of an int variable in Java?",
+                        "option1": "2 bytes",
+                        "option2": "4 bytes",
+                        "option3": "8 bytes",
+                        "option4": "1 byte",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which of the following loops is guaranteed to run at least once?",
+                        "option1": "for",
+                        "option2": "while",
+                        "option3": "do-while",
+                        "option4": "loop",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which keyword is used to refer to the current object?",
+                        "option1": "self",
+                        "option2": "me",
+                        "option3": "this",
+                        "option4": "current",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which collection class stores data in key-value pairs?",
+                        "option1": "List",
+                        "option2": "Set",
+                        "option3": "Map",
+                        "option4": "ArrayList",
+                        "correct_option": "c"
+                    },
+                    {
+                        "question": "Which keyword is used to stop method overriding?",
+                        "option1": "static",
+                        "option2": "final",
+                        "option3": "private",
+                        "option4": "abstract",
+                        "correct_option": "b"
+                    },
+                    {
+                        "question": "Which of the following is a wrapper class for int?",
+                        "option1": "Integer",
+                        "option2": "Int",
+                        "option3": "Number",
+                        "option4": "IntBox",
+                        "correct_option": "a"
+                    },
+                    {
+                        "question": "Which method is used to compare two strings in Java?",
+                        "option1": "==",
+                        "option2": "compare()",
+                        "option3": "equals()",
+                        "option4": "match()",
+                        "correct_option": "c"
+                    }
+                ]
+            }
+        }
+    }
+}
+

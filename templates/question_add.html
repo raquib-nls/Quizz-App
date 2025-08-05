@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}
+    Add Questions Page 
+{% endblock title %}
+{% block extra_css %}
+<!-- custom css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='addQuestion.css') }}">
+<!-- Font Awesome CDN (for icons like home, user, github, etc.)  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+{% endblock  %}
+{% block body %}
+    
+
+<h1>Add New Question</h1>
+<div class="wrap">
+{% if msg %}
+<p style="color: green;">{{ msg }}</p>
+{% endif %}
+
+<div class="box">
+<form method="POST">
+    <label>Question:</label><br>
+    <input type="text" name="question" placeholder="type here" required><br><br>
+
+    <label>Option A:</label><br>
+    <input type="text" name="option1" placeholder="type here" required><br><br>
+
+    <label>Option B:</label><br>
+    <input type="text" name="option2"placeholder="type here" required><br><br>
+
+    <label>Option C:</label><br>
+    <input type="text" name="option3" placeholder="type here" required><br><br>
+
+    <label>Option D:</label><br>
+    <input type="text" name="option4" placeholder="type here" required><br><br>
+
+    <label>Correct Option (a/b/c/d):</label><br>
+    <input type="text" name="correct_option" placeholder="Enter correct option " required><br><br>
+
+
+  <label for="sub_id">Subcategory:</label><br>
+    <select name="sub_id" class="sn" required>
+    <option value="" disabled selected>Select Subcategory</option>
+    {% for sid, subname, catname in subcategories %}
+        <option value="{{ sid }}">{{ subname }} (Category: {{ catname }})</option>
+    {% endfor %}
+    </select>
+
+    <br><br>
+
+
+    <input type="submit" value="Add Question">
+    </div>
+
+</form>
+
+
+
+
+
+
+
+</div>
+{% endblock body %}
+
+
+
+
+
+
+
+
+

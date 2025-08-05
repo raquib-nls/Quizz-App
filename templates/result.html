@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block title %} Quiz Result Page
+{% endblock title %}
+
+{% block body %}
+
+{% block extra_css %}
+<!-- custom css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+{% endblock %}
+
+<!-- getiing scores in percentage -->
+{% set percentage = (session['score'] / det|length) * 100 %}
+
+<div class="prnt">
+
+
+
+    <div class="ans">
+        <h3>your answer / correct answer <br></h3>
+        <div class="child">
+            {% for i,v in det.items() %}
+            <div class="box1">
+            
+            <h5>{{i}}:{{v.question}}</h5> <br>
+            <ul>
+                <li>
+                    <p> Your answer: option {{v.user_ans}} : {{v.user_txt}} </p>
+                </li>
+                <li>
+                    <p> correct answer : option  {{v.correct_op}} : {{v.correct_txt}} </p>
+                </li>
+                <li>
+                <span class="status">
+                        <p>Status:</p>
+                        {% if v.status=='Correct' %}
+                        <span class="c">✅ Correct</span>
+                        
+                        {% else %}
+                        <span class="c"> ❌ Incorrect</span>
+                        {% endif %}
+                    </span> <br>
+                </li>
+            </ul>
+      
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <div class="sr">
+            
+            
+            <div class="score">
+                <p> Total score you got = {{session['score']}} </p>
+                <p>In percentage :
+                    <span>
+                        {{ '%.2f' % percentage }}%
+                    </span>
+                </p>
+            
+                <p>Grade:
+                    {% if percentage >= 90 %}
+                        <strong>A+ (Excellent)</strong>
+                    {% elif percentage >= 75 %}
+                        <strong>A (Very Good)</strong>
+                    {% elif percentage >= 60 %}
+                        <strong>B (Good)</strong>
+                    {% elif percentage >= 40 %}
+                        <strong>C (Needs Improvement)</strong>
+                    {% else %}
+                        <strong>F (Fail)</strong>
+                    {% endif %}
+                </p>
+                    
+                
+             
+            </div>
+            <div class="link">
+            <a href="{{url_for('home')}}">To go home <span class="housee">🏠</span></a>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock body %}

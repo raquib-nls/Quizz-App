@@ -1,0 +1,161 @@
+html, body{
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #edddba 0%, #ACB6E5 100%);
+}
+.container-fluidd{
+    font-family: 'Poppins', sans-serif;
+    /* background-color: #f8f9fa; */
+    display: flex;
+    flex-direction: column; 
+    background: inherit;
+   margin: 0 10%;
+  
+   height: 89.3vh;
+   
+
+}
+
+
+
+.box{
+   
+    box-sizing: border-box;
+    overflow: auto;
+    position: relative;
+    background-color: rgb(250, 235, 215,0.13);
+    display: flex;
+  
+    border: 8px solid rgba(255, 255, 255, 0.112);
+    box-shadow: 0px 18px 14px rgba(255, 255, 255, 0.396);
+    border-radius: 10px;
+
+    left: 50%;
+   
+    transform: translateX(-50%);
+
+    max-width: fit-content;
+    max-height: 89vh;
+    overflow-y: auto;
+    padding: .5em; 
+    gap: 2px;
+    backdrop-filter:blur(18px) ;
+  
+    margin-bottom: 1.2em;
+   
+    
+    
+   
+}
+
+.box::-webkit-scrollbar {
+width: 10px;
+}
+
+.box::-webkit-scrollbar-track {
+background: rgba(255, 255, 255, 0.2);
+border-radius: 10px;
+}
+
+.box::-webkit-scrollbar-thumb {
+background-color: rgba(0, 0, 0, 0.164);
+border-radius: 20px;
+border: 2px solid transparent;
+background-clip: content-box;
+}
+
+.box::-webkit-scrollbar-thumb:hover {
+background-color: rgba(0, 0, 0, 0.5);
+}
+
+.heading  h1, .heading p {
+    font-family: 'Quicksand',sans-serif !important;
+    text-transform: capitalize;
+    text-align: center;
+    overflow-y: visible;
+
+}
+.foramm p {
+    font-weight:400;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+
+.subbtn{
+    display: inline !important;
+    font-family:'Quicksand',sans-serif;
+    font-size: 1.4em;
+    font-weight: 550;
+    text-decoration: none;
+    position: relative;
+    border:5px solid rgba(255, 255, 255, 0.12) ;
+    border-radius: 10px;
+    box-shadow: 0px 12px 18px rgba(255, 255, 255, 0.396);
+    padding:0.2rem;
+  
+}
+
+.subbtn:hover{
+    transition: all 1s ease;
+    box-shadow: 0 4px 10px black;
+}
+
+label{
+    padding-left: 5%;
+}
+
+.subbtn{
+    position: relative;
+    bottom: 20px;
+    margin-left: 3%;
+}
+
+
+@media (max-width: 768px) {
+  html, body {
+    overflow: auto;
+  }
+
+  .container-fluidd {
+    height: auto;
+    margin: 0 3%;
+    padding-top: 70px; /* add spacing below navbar */
+  }
+
+  .box {
+    width: 100%;
+    max-width: 100%;
+    padding: 1em;
+    margin-top: 0.3em;
+    margin-bottom: 2em;
+    box-shadow: none;
+    border-width: 4px;
+    max-height: 75vh;
+    overflow-y: auto;
+  }
+
+  .subbtn {
+    font-size: 1em;
+    margin-left: 0;
+    bottom: 10px;
+  }
+
+  label {
+    padding-left: 1em;
+  }
+
+  .heading h1 {
+    font-size: 1.4em;
+  }
+
+  .heading p {
+    font-size: 1em;
+  }
+
+  .foramm p {
+    font-size: 1em;
+  }
+}
