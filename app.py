@@ -2,9 +2,10 @@ import mysql.connector
 import bcrypt
 from flask import Flask, render_template, request,redirect,flash,url_for,session,get_flashed_messages
 from datetime import datetime
+import os
 
 app=Flask(__name__)
-app.secret_key = "your_secret_key_here"
+app.secret_key = os.getenv("SECRET_KEY")
 
 def get_db():
     
