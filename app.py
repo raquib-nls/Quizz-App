@@ -27,7 +27,7 @@ def register():
         email=request.form["email"]
         password=request.form["password"]
 
-        secret = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        secret = bcrypt.hashpw(b"mypassword", bcrypt.gensalt()).decode('utf-8')
 
 
         cnt=get_db()
