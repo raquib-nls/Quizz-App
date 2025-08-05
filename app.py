@@ -1,4 +1,4 @@
-import mysql.connector
+
 import bcrypt
 from flask import Flask, render_template, request,redirect,flash,url_for,session,get_flashed_messages
 from datetime import datetime
