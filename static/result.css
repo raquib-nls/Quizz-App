@@ -1,6 +1,6 @@
 
 html, body{
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
     background: linear-gradient(135deg, #edddba 0%, #ACB6E5 100%);
    
@@ -191,37 +191,46 @@ ul{
 
 /* mobile section */
 
-@media (max-width: 768px){
-    html, body{
-        overflow: scroll;
+@media (max-width: 768px) {
+    html, body {
         background: linear-gradient(135deg, #edddba 0%, #ACB6E5 100%);
+        overflow-x: hidden;
+        overflow-y: auto;
+        min-height: 100vh;
     }
-    .ans{
+
+    .ans {
         padding: 12px 10px;
-        max-width: 100%;
-        display: flex;
-         
-        margin-left: .5rem;
-        margin-right: 1.2rem;
-        height: 90vh;
+        width: 95%;
+        margin: 0 auto;
+        height: auto;
+        max-height: none;
         backdrop-filter: none;
         background-color: rgba(255, 255, 255, 0.1);
-        
-       
+        box-shadow: none;
     }
-   
-    .ans h5{
-        font-size: 1.2em;
-        overflow: hidden;
 
+    .ans h5 {
+        font-size: 1.2em;
     }
-    .ans h3{
+
+    .ans h3 {
         font-size: 1.7em;
     }
-    .sr{
-        
+
+    .sr {
+        flex-direction: column;
         gap: 1em;
-        
     }
-    
+
+    .score {
+        width: 100%;
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+
+    .link {
+        font-size: 1.2em;
+        padding: 0.4rem 1rem;
+    }
 }
