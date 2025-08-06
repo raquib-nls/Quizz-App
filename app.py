@@ -27,7 +27,8 @@ def register():
         email=request.form["email"]
         password=request.form["password"]
 
-        secret = bcrypt.hashpw(b"mypassword", bcrypt.gensalt()).decode('utf-8')
+        secret = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+
 
 
         cnt=get_db()
@@ -77,14 +78,17 @@ def login():
 
         if user:
             user_id, user_name, hashed_password, is_admin = user
-
-            if bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8')):
+            if bcrypt.checkpw(
+                password.encode('utf-8'),
+                (hashed_password.decode('utf-8') if isinstance(hashed_password, bytes) else hashed_password).strip().encode('utf-8')
+            ):
                 session["user_id"] = user_id
                 session["user_name"] = user_name
                 session["is_admin"] = is_admin
 
+
                 # Step 2: Check if user is listed in admin_auth table
-                if is_admin == 0:
+                if not is_admin:
                     curs.execute("SELECT admin_password FROM admin_auth WHERE admin_email = %s", (email,))
                     admin_record = curs.fetchone()
 
@@ -96,9 +100,9 @@ def login():
                             ask_admin = True
                         elif bcrypt.checkpw(admin_pss.encode('utf-8'), db_admin_password.encode('utf-8')):
                             # Promote to admin
-                            curs.execute("UPDATE users SET is_Admin = 1 WHERE email = %s", (email,))
+                            curs.execute("UPDATE users SET is_Admin = %s WHERE email = %s", (True, email))
                             cnt.commit()
-                            session["is_admin"] = 1
+                            session["is_admin"] = True
                             msg = "Admin status granted successfully"
                             flag = True
                             flag_anim=True
@@ -111,7 +115,7 @@ def login():
                         flag = True
                         flag_anim = True
                 else:
-                    msg = "Welcome back admin" if is_admin == 1 else "Login successful<br>Welcome!"
+                    msg = "Welcome back admin" if is_admin  else "Login successful<br>Welcome!"
                     flag = True
                     flag_anim = True
             else:
@@ -262,9 +266,13 @@ def admin():
 @app.route("/admin/add_question",methods=['GET','POST'])
 def add_question():
     msg = session.pop('msg',None)
-    if 'is_admin' not in session or session['is_admin']!=1:
+    if 'is_admin' not in session or session['is_admin']!=True:
         msg="acess denied admin only"
         return redirect(url_for('home'))
+    
+    if session.get("user_name") != os.getenv("SUPER_ADMIN_EMAIL"):
+        flash("❌ Access Denied: Only Super Admin can add questions")
+        return redirect(url_for("admin"))
     cnt=get_db()
     curs=cnt.cursor()
 
@@ -417,6 +425,8 @@ def questions(filepath):
         conn.close()
 
 
+
+
 @app.route("/import_questions", methods=["GET", "POST"])
 def import_questions_route():
     import os
@@ -439,6 +449,14 @@ import os
 
 @app.route("/upload_questions", methods=["POST"])
 def upload_questions():
+    
+    if 'is_admin' not in session or session['is_admin'] != True:
+        return redirect(url_for('home'))
+
+    if session.get("user_name") != os.getenv("SUPER_ADMIN_EMAIL"):
+        flash("❌ Access Denied: Only Super Admin can upload JSON file")
+        return redirect(url_for("admin"))
+
     if 'file' not in request.files:
         return "No file part"
     file = request.files['file']
@@ -454,13 +472,17 @@ def upload_questions():
 
 @app.route("/import_questions", methods=["POST"])
 def import_questions():
+    if not session.get("is_admin") or session.get("user_name") != os.getenv("SUPER_ADMIN_EMAIL"):
+        return "❌ Access Denied: Only Super Admin can import questions"
         
-
+    filepath = "uploads/questions.json"
+    if not os.path.exists(filepath):
+        return "❌ questions.json file not found in uploads folder."
 
     result = questions("uploads/questions.json")
     return result
 
 if __name__=="__main__":
-    port = int(os.environ.get("PORT",5000))
-    app.run(host="0.0.0.0",port=port,debug=False)
-
+    # port = int(os.environ.get("PORT",5000))
+    # app.run(host="0.0.0.0",port=port,debug=False)
+    app.run(debug=True)

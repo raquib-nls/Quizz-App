@@ -51,11 +51,9 @@
                 </li>
                 <li><a class="dropdown-item" href="{{ url_for('catagories') }}">Quiz Categories</a></li>
                 {% endif %}
-                {% if session.get('score') is not none %}
-                <li>
-                <a class="dropdown-item" href="{{ url_for('result') }}"> View Result</a>
-                </li>
-                {% endif %}
+                <!-- {% if session.get('user_id') %}
+                <li><a class="dropdown-item" href="{{ url_for('result') }}">View Result</a></li>
+                {% endif %} -->
               </ul>
             </li>
           </ul>

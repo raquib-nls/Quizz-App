@@ -183,7 +183,13 @@ pre {
     background: linear-gradient(135deg, #444, #222);
     transform: scale(1.05);
 }
-
+.flash-message {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #dc3545; /* Red color (error) */
+  margin-top: 20px;
+}
 
 @keyframes fadeInUp {
     from {

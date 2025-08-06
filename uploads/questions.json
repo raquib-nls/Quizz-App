@@ -1,6 +1,6 @@
 {
     "categories": {
-        "sports": {
+        "Sports": {
             "Cricket": {
                 "sub_id": 1,
                 "questions": [
@@ -331,7 +331,7 @@
                     }
                 ]
             },
-            "hockey": {
+            "Hockey": {
                 "sub_id": 3,
                 "questions": [
                     {
@@ -497,7 +497,7 @@
                 ]
             }
         },
-        "programm": {
+        "Programm": {
             "Python": {
                 "sub_id": 4,
                 "questions": [

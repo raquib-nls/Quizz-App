@@ -9,6 +9,18 @@
 {% endblock %}
 
 {% block body %}
+
+<!-- for progress msg -->
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="flash-message">
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
 <div class="admin-dashboard-wrap">
   <div class="box">
     <h1>🛠️ Admin Dashboard</h1>
@@ -63,14 +75,6 @@
         <p>{{ message }}</p>
         {% endif %}
 
-        <!-- for progress msg -->
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <p>{{ message }}</p>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
       </div>
     </div>
   </div>
