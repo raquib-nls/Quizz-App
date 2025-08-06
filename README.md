@@ -164,6 +164,13 @@ Made with ❤️ by [**Mohd Raquib Hussain**](https://github.com/raquib-nls)
 🎓 Third-Year B.Tech Student | Artificial Intelligence & Machine Learning 
 Connect with me on [LinkedIn](https://www.linkedin.com/in/mohd-raquib-hussain-nls108)
 ---
+## 🙏 Acknowledgments
+
+- [Bootstrap](https://getbootstrap.com/) – for responsive frontend components
+- [Flask Documentation](https://flask.palletsprojects.com/) – for backend routing & session handling
+- Various online communities, tutorials, and blogs for helping implement secure login, session management, and JSON parsing logic
+
+---
 
 ## 📄 License
 
