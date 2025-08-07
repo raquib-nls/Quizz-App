@@ -270,7 +270,7 @@ def add_question():
         msg="acess denied admin only"
         return redirect(url_for('home'))
     
-    if session.get("user_name") != os.getenv("SUPER_ADMIN_EMAIL"):
+    if session.get("email") != os.getenv("SUPER_ADMIN_EMAIL"):
         flash("❌ Access Denied: Only Super Admin can add questions")
         return redirect(url_for("admin"))
     cnt=get_db()
@@ -453,7 +453,7 @@ def upload_questions():
     if 'is_admin' not in session or session['is_admin'] != True:
         return redirect(url_for('home'))
 
-    if session.get("user_name") != os.getenv("SUPER_ADMIN_EMAIL"):
+    if session.get("email") != os.getenv("SUPER_ADMIN_EMAIL"):
         flash("❌ Access Denied: Only Super Admin can upload JSON file")
         return redirect(url_for("admin"))
 
@@ -472,7 +472,7 @@ def upload_questions():
 
 @app.route("/import_questions", methods=["POST"])
 def import_questions():
-    if not session.get("is_admin") or session.get("user_name") != os.getenv("SUPER_ADMIN_EMAIL"):
+    if not session.get("is_admin") or session.get("email") != os.getenv("SUPER_ADMIN_EMAIL"):
         return "❌ Access Denied: Only Super Admin can import questions"
         
     filepath = "uploads/questions.json"
