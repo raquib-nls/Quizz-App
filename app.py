@@ -4,6 +4,8 @@ from flask import Flask, render_template, request,redirect,flash,url_for,session
 from datetime import datetime
 import os
 import psycopg2
+import logging
+logging.basicConfig(level=logging.INFO)
 from dotenv import load_dotenv
 
 app=Flask(__name__)
@@ -18,35 +20,54 @@ def get_db():
 def home():
    return render_template("index.html")
 
-@app.route("/register",methods=['GET','POST'])
+@app.route("/register", methods=['GET', 'POST'])
 def register():
-    flag=False
-    msg = session.pop('msg',None)
-    if request.method=='POST':
-        user_name=request.form["username"]
-        email=request.form["email"]
-        password=request.form["password"]
+    flag = False
+    msg = session.pop('msg', None)
 
+    if request.method == 'POST':
+        user_name = request.form["username"]
+        email = request.form["email"]
+        password = request.form["password"]
+
+        
         secret = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
+        try:
+            cnt = get_db()
+            curs = cnt.cursor()
 
+            curs.execute("SELECT * FROM users WHERE email = %s", (email,))
+            if curs.fetchone():
+                msg = "Email already registered!"
+                curs.close()
+                cnt.close()
+                return render_template("register.html", msg=msg, flag=False)
+            
+            curs.execute("""INSERT INTO users(user_name, email, password) VALUES (%s, %s, %s)""", (user_name, email, secret))
+            cnt.commit()
 
-        cnt=get_db()
-        curs=cnt.cursor()
-        curs.execute("""insert into users(user_name,email,password) values(%s,%s,%s)""",(user_name,email,secret))
+            
+            session['user_name'] = user_name
+            flag = True
+            msg = "Successfully registered!"
 
-        cnt.commit()
-        session['user_name']=user_name
-        msg="Succesfully Register"
-        flag=True
+          
+            curs.close()
+            cnt.close()
 
-        curs.close()
-        cnt.close()
-        
-       
-    return render_template("register.html",msg=msg,flag=flag)
+            
+            return redirect(url_for('login'))
 
+        except Exception as e:
+            logging.error("Registration error: %s", e)
+            msg = "Registration failed! Maybe email already exists?"
+            flag = False
 
+            if 'curs' in locals(): curs.close()
+            if 'cnt' in locals(): cnt.close()
+
+    return render_template("register.html", msg=msg, flag=flag)
 
 
 @app.route("/login", methods=['POST', 'GET'])
@@ -59,6 +80,7 @@ def login():
     ask_admin = False
     flag = False
     flag_anim = False
+
     # flag is for redirecting
     # flag_Anim prevents animation from playing on each page reload during error or success messages.`
 
