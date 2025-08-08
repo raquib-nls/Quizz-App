@@ -79,17 +79,23 @@ label{
    
 }
 
-.alert{
+.alert {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) scale(1.2);
     display: flex;
     max-width: fit-content;
-    background-color: rgba(255, 255, 255, 0.062);
-    backdrop-filter: blur(20px) !important; 
-    -webkit-backdrop-filter: blur(10px); 
-    box-shadow: 0 4px 8px black ;
-    transition: scale 2s ease;
-    transform: translateX(70%) scale(1.2);
-    animation: scaleIn 1.2s ease forwards;
     
+    background-color: rgba(255, 255, 255, 0.062);
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(10px);
+    
+    box-shadow: 0 4px 8px black;
+    transition: scale 2s ease;
+    
+    animation: scaleIn 1.2s ease forwards;
+    z-index: 999; 
 }
 
 .inputwrap{
