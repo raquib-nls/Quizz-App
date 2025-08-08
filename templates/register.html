@@ -49,20 +49,21 @@
 {% endif %}
 <!-- hidden input for marking flag status for redirecting and triggering animation effect -->
 <input type="hidden" id="redirect" value="{{flag|tojson}}">
+<input type="hidden" id="animation" value="{{flag_anim|tojson}}">
 <script>
     
 const rcatt = document.getElementById('redirect').value;
-
-if (rcatt === "true") {
-    sessionStorage.setItem('noAnimation', 'true');
-}
-// to stop unnecassary animation effect
-window.addEventListener('DOMContentLoaded', () => {
-    if (sessionStorage.getItem('noAnimation') === 'true') {
-        document.getElementById('mainWrap')?.classList.add('no-animation');
-        sessionStorage.removeItem('noAnimation'); 
+const rcattt =document.getElementById('animation').value;
+  if(rcattt==='true'){
+    sessionStorage.setItem('noAnimation','true');
     }
-});
+    // checking for triggering animation effect
+    window.addEventListener('DOMContentLoaded', () => {
+        if(sessionStorage.getItem('noAnimation')==='true'){
+            document.getElementById('mainWrap')?.classList.add('no-animation')
+            sessionStorage.removeItem('noAnimation');
+        }
+    });
 
 // for hiding alert msg
 setTimeout(() => {

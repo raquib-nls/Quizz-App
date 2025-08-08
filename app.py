@@ -23,6 +23,7 @@ def home():
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     flag = False
+    flag_anim = False
     msg = session.pop('msg', None)
 
     if request.method == 'POST':
@@ -62,12 +63,13 @@ def register():
         except Exception as e:
             logging.error("Registration error: %s", e)
             msg = "Registration failed! Maybe email already exists?"
+            flag_anim = True
             flag = False
 
             if 'curs' in locals(): curs.close()
             if 'cnt' in locals(): cnt.close()
 
-    return render_template("register.html", msg=msg, flag=flag)
+    return render_template("register.html", msg=msg, flag=flag,flag_anim=flag_anim)
 
 
 @app.route("/login", methods=['POST', 'GET'])
