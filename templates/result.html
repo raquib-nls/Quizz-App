@@ -6,6 +6,9 @@
 {% block extra_css %}
 <!-- custom css -->
 <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+<!-- font css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 {% endblock %}
 {% block body %}
 
@@ -40,44 +43,51 @@
                         </span> <br>
                     </li>
                 </ul>
-            
-            {% endfor %}
+
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <div class="sr">
+
+
+            <div class="score">
+                <p> Total score you got = {{session['score']}} </p>
+                <p>In percentage :
+                    <span>
+                        {{ '%.2f' % percentage }}%
+                    </span>
+                </p>
+
+                <p>Grade:
+                    {% if percentage >= 90 %}
+                    <strong>A+ (Excellent)</strong>
+                    {% elif percentage >= 75 %}
+                    <strong>A (Very Good)</strong>
+                    {% elif percentage >= 60 %}
+                    <strong>B (Good)</strong>
+                    {% elif percentage >= 40 %}
+                    <strong>C (Needs Improvement)</strong>
+                    {% else %}
+                    <strong>F (Fail)</strong>
+                    {% endif %}
+                </p>
+
+
+
+            </div>
+            <div class="lbox">
+                <div class="score_card">
+                    <a href="{{ url_for('my_results') }}">
+                        <i class="fas fa-clipboard-list"></i> For Score Card
+                    </a>
+                </div>
+                <div class="link">
+                    <a href="{{url_for('home')}}">To go home <span class="housee">🏠</span></a>
+                </div>
+            </div>
         </div>
     </div>
-
-
-    <div class="sr">
-
-
-        <div class="score">
-            <p> Total score you got = {{session['score']}} </p>
-            <p>In percentage :
-                <span>
-                    {{ '%.2f' % percentage }}%
-                </span>
-            </p>
-
-            <p>Grade:
-                {% if percentage >= 90 %}
-                <strong>A+ (Excellent)</strong>
-                {% elif percentage >= 75 %}
-                <strong>A (Very Good)</strong>
-                {% elif percentage >= 60 %}
-                <strong>B (Good)</strong>
-                {% elif percentage >= 40 %}
-                <strong>C (Needs Improvement)</strong>
-                {% else %}
-                <strong>F (Fail)</strong>
-                {% endif %}
-            </p>
-
-
-
-        </div>
-        <div class="link">
-            <a href="{{url_for('home')}}">To go home <span class="housee">🏠</span></a>
-        </div>
-    </div>
-</div>
 </div>
 {% endblock body %}

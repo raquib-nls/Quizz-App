@@ -1,62 +1,51 @@
 {% extends 'base.html' %}
 {% block title %}
-    Quizz Page
+Quizz Page
 {% endblock title %}
 
 {% block extra_css %}
 <!-- custom css -->
 <link rel="stylesheet" href="{{ url_for('static', filename='quizz.css') }}">
-{% endblock  %}
+{% endblock %}
 
 {% block body %}
 
 
 <div class="container-fluidd">
- 
-    
+
+
     <div class="box">
         <form method="post" action="/submit" class="foramm">
+            <input type="hidden" name="subcat_id" value="{{ subcat_id }}">
             <div class="heading">
                 <h1>Quizz challenge</h1>
+                <p>Score 1 point for every correct answer</p>
                 <p> All the best! </p>
             </div>
-            {% for i in result %}
+            {% for q in result %}
+            <p><strong>Q{{ loop.index }} </strong>{{ q[1] }}</p>
 
-        
-        <p><strong>Q{{loop.index}} </strong>{{i[0]}}</p>
+            <label>
+                <input type="radio" name="ans_{{ q[0] }}" value="a" >{{ q[2] }}
+            </label><br>
+            <label>
+                <input type="radio" name="ans_{{ q[0] }}" value="b" >{{ q[3] }}
+            </label><br>
+            <label>
+                <input type="radio" name="ans_{{ q[0] }}" value="c" >{{ q[4] }}
+            </label><br>
+            <label>
+                <input type="radio" name="ans_{{ q[0] }}" value="d" >{{ q[5] }}
+            </label><br>
+            {% endfor %}
 
-        <label>
-        <input type="radio" name="ans_{{loop.index}}" value="a" required>{{i[1]}} 
-        </label> <br>
-        <label>
-        <input type="radio" name="ans_{{loop.index}}" value="b" required>{{i[2]}} 
-        </label> <br>
-        <label>
-        <input type="radio" name="ans_{{loop.index}}" value="c" required>{{i[3]}} 
-        </label><br>
-        <label>
-        <input type="radio" name="ans_{{loop.index}}" value="d" required>{{i[4]}} 
-        </label> <br>
-        <label>
-            <!-- hidden inputs are for questions and correct option -->
-        <input type="hidden" name="ques_{{loop.index}}" value=" {{i[0]}}"> 
-        </label> <br>
-        <label >
-        <input type="hidden" name="crct_{{loop.index}}" value=" {{i[5]}}"> 
-        </label> <br>
-        
-        
-        {% endfor %}
-        <span class="buton">
-        <button  type="submit" class="btn btn-outline-success subbtn">Submit</button>
-    </span>
-    </form>
+            <span class="buton">
+                <button type="submit" class="btn btn-outline-success subbtn">Submit</button>
+            </span>
+        </form>
+    </div>
 </div>
-</div>
-  
+
 
 
 {% endblock body %}
-
-
-

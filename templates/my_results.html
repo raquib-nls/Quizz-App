@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}My Results{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='my_results.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="results-container">
+    <h2>{{ user_name }}'s Quiz Results</h2>
+    <p class="textt">Each correct answer awards you 1 point. Your total score reflects how many questions you answered correctly</p>
+    {% if results %}
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th>Quiz ID / Subcategory</th>
+                <th>Score (Correct)</th>
+                <th>Attempted</th>
+                <th>Total Questions</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in results %}
+            <tr>
+                <td>{{ r[0] }} / {{ r[5] or "N/A" }}</td>
+                <td>{{ r[1] }}</td>
+                <td>{{ r[2] }}</td>
+                <td>{{ r[3] }}</td>
+                <td>{{ r[4].strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    {% else %}
+    <p class="no-results">You haven't taken any quizzes yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

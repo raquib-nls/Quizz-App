@@ -5,7 +5,9 @@ from datetime import datetime
 import os
 import psycopg2
 import logging
+from psycopg2 import OperationalError
 logging.basicConfig(level=logging.INFO)
+
 from dotenv import load_dotenv
 
 app=Flask(__name__)
@@ -13,8 +15,13 @@ app.secret_key = os.getenv("SECRET_KEY")
 
 load_dotenv()
 def get_db():
-    return psycopg2.connect(os.getenv("DATABASE_URL"))
-    
+    db_url = os.getenv("DATABASE_URL")
+    try:
+        conn = psycopg2.connect(db_url)
+        return conn
+    except OperationalError as e:
+        app.logger.error(f"Database connection failed: {e}")
+        raise
 
 @app.route("/")
 def home():
@@ -95,7 +102,7 @@ def login():
 
         cnt = get_db()
         curs = cnt.cursor()
-
+        # writing steps so easy to understand by u and others
         # Step 1: Check if email exists in users table
         curs.execute("SELECT id, user_name, password, is_Admin FROM users WHERE email = %s", (email,))
         user = curs.fetchone()
@@ -190,76 +197,91 @@ def subcat(cat_id):
     return render_template("subcategory.html",subcat=subcat)
 
 @app.route("/quizz/<int:id>/<int:id2>")
-def quizz(id,id2):
-    cnt=get_db()
-    curs=cnt.cursor()
-    curs.execute("select question,option1,option2,option3,option4,CORRECT_OPTION from questions where sub_id=%s",(id,))
-    result=curs.fetchall()
-    
+def quizz(id, id2):
+    cnt = get_db()
+    curs = cnt.cursor()
+    curs.execute("""
+        SELECT id, question, option1, option2, option3, option4, CORRECT_OPTION 
+        FROM questions WHERE sub_id=%s
+    """, (id,))
+    result = curs.fetchall()
+    return render_template("quizz.html", result=result, subcat_id=id)
 
-    return render_template("quizz.html",result=result)
-
-@app.route("/submit",methods=['GET','POST'])
+@app.route("/submit", methods=['POST'])
 def submit():
+   
+    session.pop('details', None)
+    session.pop('score', None)
+
     
-    answer={} 
-    details={}
-    score=0
-    for i in request.form.keys():
-        if i.startswith('ans'): 
-            question=i.split('_')[1]
-            answer[question]=request.form[i]
-    total_attempt=len(answer)
-    session['total_attempt']=total_attempt
+    subcat_id = request.form.get('subcat_id')
+    session['subcat_id'] = subcat_id
 
-    cnt=get_db()
-    curs=cnt.cursor()
-    for i,v in answer.items():
-        curs.execute("select question,option1,option2,option3,option4,CORRECT_OPTION from questions where id=%s",(i,))
-        crct=curs.fetchone()
-        question,opt_a,opt_b,opt_c,opt_d,cr_op=crct
+  
+    answer = {}
+    details = {}
+    score = 0
 
-        option_txt={
-            'a':opt_a,
-            'b':opt_b,
-            'c':opt_c,
-            'd':opt_d,
+    
+    for key, value in request.form.items():
+        if key.startswith('ans_'):
+            question_id = key.split('_')[1] 
+            answer[question_id] = value  
+
+    total_attempt = len(answer)
+    session['total_attempt'] = total_attempt
+
+    
+    cnt = get_db()
+    curs = cnt.cursor()
+
+    for q_id, user_choice in answer.items():
+        curs.execute("""
+            SELECT question, option1, option2, option3, option4, CORRECT_OPTION
+            FROM questions WHERE id=%s
+        """, (q_id,))
+        question, opt_a, opt_b, opt_c, opt_d, correct_option = curs.fetchone()
+
+        options_map = {
+            'a': opt_a,
+            'b': opt_b,
+            'c': opt_c,
+            'd': opt_d
         }
-        status="Correct" if v==cr_op else "Incorrect"
-        if status=="Correct":
-            score+=1
-       
 
-        details[i]={
-            "question":question,
-            "user_ans":v,
-            "user_txt":option_txt.get(v,"not answered"),
-            "correct_op":cr_op,
-            "correct_txt":option_txt.get(cr_op,"Not available"),
-            "status":status
+        status = "Correct" if user_choice == correct_option else "Incorrect"
+        if status == "Correct":
+            score += 1
 
+        details[q_id] = {
+            "question": question,
+            "user_ans": user_choice,
+            "user_txt": options_map.get(user_choice, "Not answered"),
+            "correct_op": correct_option,
+            "correct_txt": options_map.get(correct_option, "Not available"),
+            "status": status
         }
-        
-    session['details']=details
-    session['score']=score
-    
-    curs.execute("select count(*) from questions")
-    total_ques=curs.fetchone()[0]
-    
-    user_name=session.get('user_name')
-    
-    total_attemptt=session.get('total_attempt',0)
 
-    curs.execute("insert into submission(user_name,score,total_attempt,total_ques) values(%s,%s,%s,%s)",(user_name,score,total_attemptt,total_ques,))
+   
+    session['details'] = details
+    session['score'] = score
+
+   
+    curs.execute("SELECT COUNT(*) FROM questions WHERE sub_id=%s", (subcat_id,))
+    total_ques = curs.fetchone()[0]
+
+    subcat_id = session.get('subcat_id')
+    user_name = session.get('user_name')
+    curs.execute("""
+        INSERT INTO submission(user_name, score, total_attempt, total_ques,subcat_id)
+        VALUES(%s, %s, %s, %s, %s)
+    """, (user_name, score, total_attempt, total_ques,subcat_id))
     cnt.commit()
 
     curs.close()
     cnt.close()
+
     return redirect(url_for("result"))
-
-        
-    
-
 
 
 @app.route("/result")
@@ -283,7 +305,7 @@ def admin():
 
     if 'is_admin' not in session or session['is_admin'] != 1:
         msg=("Access denied: Admins only")
-        return redirect(url_for('admin_login'))  # redirect if not admin
+        return redirect(url_for('admin_login')) 
     return render_template("admin.html")
 
 
@@ -505,6 +527,35 @@ def import_questions():
 
     result = questions("uploads/questions.json")
     return result
+
+@app.route("/my_results")
+def my_results():
+    if 'user_id' not in session:
+        return redirect(url_for("login"))
+
+    cnt = get_db()
+    curs = cnt.cursor()
+
+    user_name = session.get('user_name')
+
+    curs.execute("""
+        SELECT s.id, s.score, s.total_attempt, s.total_ques, s.submission_time, sc.name
+        FROM submission s
+        LEFT JOIN subcatogaries sc ON s.subcat_id = sc.s_id
+        WHERE s.user_name = %s
+        ORDER BY s.submission_time DESC
+    """, (user_name,))
+    results = curs.fetchall()
+
+    curs.close()
+    cnt.close()
+
+    return render_template("my_results.html", results=results, user_name=user_name)
+
+
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('500.html'), 500
 
 if __name__=="__main__":
     port = int(os.environ.get("PORT",5000))
