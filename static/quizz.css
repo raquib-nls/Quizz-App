@@ -126,6 +126,7 @@ label {
 @media (max-width: 768px) {
     html, body {
         overflow-x: hidden;
+        overflow-y: auto;
         margin: 0;
         padding: 0;
         background: linear-gradient(135deg, #edddba 0%, #ACB6E5 100%);
@@ -183,6 +184,7 @@ label {
 @media (max-width: 480px) {
     .box {
         padding: 0.5em;
+        overflow-y: auto;
     }
 
     .heading h1 {

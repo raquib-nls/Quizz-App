@@ -208,7 +208,7 @@ transition: all 0.3sec ease;
 @media (max-width:768px){
     .left {
         position: relative !important;
-        height: 40vh !important;
+        height: 53vh !important;
         
     }
     .right{
@@ -246,6 +246,7 @@ transition: all 0.3sec ease;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin-top: -3em;
     }
 
     .left, .right {
