@@ -88,7 +88,7 @@ html, body {
 
 
 .type::after {
-    content: "_"; /* Or "_" or anything you like */
+    content: "_"; 
     position: absolute;
     right: 0;
     top: 0;
@@ -171,6 +171,27 @@ transform: scale(1.05);
 .box a{
 transition: all 0.3sec ease;
 }
+
+.left {
+    position: absolute;
+    top: 0;     
+    left: 0;
+    transform: translateY(35px);
+    width: 60%;
+    height: 100%;
+  
+}
+.right {
+    position: absolute;
+    top: 0;     
+    right: 0;
+    transform: translateY(21px);
+    width: 60%;
+    height: 100%;
+    
+}
+
+
 @keyframes pulse{
     0% {transform: scale(1);}
     50% {transform: scale(1.05);}

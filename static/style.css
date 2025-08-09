@@ -1,13 +1,5 @@
-/* global */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-/* global font */
 body {
-    font-family: 'Poppins', sans-serif;
     background-color: #f8f9fa;
     color: #212529;
 }
